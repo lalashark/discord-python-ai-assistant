@@ -66,7 +66,8 @@ def get_user_conversation(student_number: int) -> ConversationChain:
             model="models/gemini-1.5-pro",
             temperature=0.7,
             google_api_key=GOOGLE_API_KEY
-        )
+        ,
+            max_output_tokens=768)
         memory = ConversationBufferMemory(return_messages=True)
         conversation = ConversationChain(llm=llm, memory=memory, verbose=False)
 
